@@ -1,6 +1,6 @@
 name '1_MongoDB'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Ankit Soni'
+maintainer_email 'ankit100ni@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures 1_MongoDB'
 version '0.1.0'
