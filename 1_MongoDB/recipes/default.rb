@@ -11,11 +11,12 @@ template node['mongodb']['service_file'] do
     mode 0644
   end
   
-  package node['mongodb']['package']
+package node['mongodb']['package']
   
-  service 'mongod' do
+  
+service 'mongod' do
     action [:enable, :start]
-  end
+end
   
   # execute 'mongodb' do
   #   command 'sudo chkconfig mongod on'
