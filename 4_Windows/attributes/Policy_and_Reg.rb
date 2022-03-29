@@ -1,0 +1,5 @@
+default['Policy']['SeInteractiveLogonRight'] = 'Allow log on locally'
+default['Policy']['SeRemoteInteractiveLogonRight'] = 'Allow log on through Remote Desktop Services'
+default['Policy']['EnableAdminAccount'] = 'HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System'
+default['Registry']['NtpServer'] = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\W32time\\TimeProviders\\NTPServer'
+default['Registry']['NtpClinet'] = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\W32time\\TimeProviders\\NtpClient'
