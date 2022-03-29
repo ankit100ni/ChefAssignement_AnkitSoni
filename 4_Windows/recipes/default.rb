@@ -5,25 +5,25 @@
 # Copyright:: 2022, The Authors, All Rights Reserved.
 
 
-windows_user_privilege 'Allow log on locally' do
+windows_user_privilege node['Policy']['SeInteractiveLogonRight'] do
     privilege 'SeInteractiveLogonRight'
     users         ['BUILTIN\Administrators']
     action         :set
   end
   
- windows_user_privilege 'Allow log on through Remote Desktop Services' do
+ windows_user_privilege node['Policy']['SeRemoteInteractiveLogonRight'] do
     privilege 'SeRemoteInteractiveLogonRight'
     users          ['BUILTIN\Administrators', 'BUILTIN\Remote Desktop Users']
     action         :set
 end
   
-windows_security_policy 'Accounts: Administrator account status' do
+windows_security_policy node['Policy']['EnableAdminAccount'] do
     secoption 'EnableAdminAccount'
     secvalue '0'
     action :set
 end
   
-registry_key 'HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' do
+registry_key node['Policy']['DisableCAD'] do
     values [{
         name: 'DisableCAD',
         type: :dword,
@@ -32,7 +32,7 @@ registry_key 'HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\
     action :create
 end
   
-registry_key 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\W32time\\TimeProviders\\NtpClient' do
+registry_key node['Registry']['NtpServer'] do
     values [{
         name:  'Enabled',
         type:  :dword,
@@ -42,7 +42,7 @@ registry_key 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\W32time\\TimePr
     action :create
 end
   
-registry_key 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\W32time\\TimeProviders\\NTPServer' do
+registry_key node['Registry']['NtpClinet'] do
     values [{
         name:  'Disabled',
         type:  :dword,
