@@ -32,8 +32,8 @@ registry_key node['Policy']['DisableCAD'] do
     action :create
 end
   
-registry_key node['Registry']['NtpServer'] do
-    values [{
+registry_key node['Registry']['NtpCinet'] do
+    values [{l
         name:  'Enabled',
         type:  :dword,
         data:  1,
@@ -42,7 +42,7 @@ registry_key node['Registry']['NtpServer'] do
     action :create
 end
   
-registry_key node['Registry']['NtpClinet'] do
+registry_key node['Registry']['NtpServer'] do
     values [{
         name:  'Disabled',
         type:  :dword,
