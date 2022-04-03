@@ -25,6 +25,4 @@ This repository peforms following actions:
 * Creates a group with name Tomcat
 * Downloads the installation file from the tomcat binary repository
 * Archive the file and generate the install file
-* 
-
 
