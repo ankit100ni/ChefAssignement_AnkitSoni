@@ -6,36 +6,28 @@
 
 package node['tomcat']['java_package']
 
+
 remote_file node['tomcat']['package_path'] do
     source node['tomcat']['tomcat_package_source']
+    mode '0755'
     action :create
 end
 
-directory node['tomcat']['install_directory'] do
+
+archive_file node['tomcat']['package_path'] do
+    path node['tomcat']['package_path']
+    destination node['tomcat']['install_directory']
     group node['tomcat']['group']
-    action :create
     owner node['tomcat']['user']
-end
-
-# archive_file '/tmp/apache-tomcat-8.5.77.tar.gz' do
-#     path '/tmp/apache-tomcat-8.5.77.tar.gz'
-#     destination '/opt/tomcat'
-#     group 'tomcat'
-#     owner 'tomcat'
-#     action :extract
-#     mode 755
-# end
-
-execute 'extract_tomcat_binary' do
-    command 'sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1'
-    cwd '/tmp'
-    not_if { Dir.exist?('/opt/tomcat/bin') }
+    strip_components 1
+    action :extract
 end
 
 
-execute 'update_permissions' do
-    command 'cd /opt/tomcat;sudo chgrp -R tomcat /opt/tomcat;sudo chmod -R g+r conf;sudo chmod g+x conf;sudo chown -R tomcat webapps/ work/ temp/ logs/'
-    only_if { ::File.exist?('/opt/tomcat/bin') }
+directory '/opt/tomcat' do
+    owner node['tomcat']['user']
+    group node['tomcat']['group']
+    mode '0755'
 end
 
 

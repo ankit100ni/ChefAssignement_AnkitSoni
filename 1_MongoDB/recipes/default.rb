@@ -18,8 +18,4 @@ service 'mongod' do
     action [:enable, :start]
 end
   
-  # execute 'mongodb' do
-  #   command 'sudo chkconfig mongod on'
-  # end
-  
   
