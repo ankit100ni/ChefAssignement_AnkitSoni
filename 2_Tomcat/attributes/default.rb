@@ -1,7 +1,7 @@
 default['tomcat']['group'] = 'tomcat'
 default['tomcat']['user'] = 'tomcat'
 default['tomcat']['package'] = 'apache-tomcat-8.5.78.tar.gz'
-default['tomcat']['package_path'] = "/tmp/apache-tomcat-8.5.78.tar.gz"
+default['tomcat']['package_path'] = '/tmp/apache-tomcat-8.5.78.tar.gz'
 default['tomcat']['extract'] = 'apache-tomcat-8.5.77'
 default['tomcat']['service'] = '/etc/systemd/system/tomcat.service'
 default['tomcat']['install_directory'] = '/opt/tomcat'

@@ -5,15 +5,15 @@
 # Copyright:: 2022, The Authors, All Rights Reserved.
 
 template node['tomcat']['service'] do
-    source 'tomcat_service.erb'
-    owner 'root'
-    mode 0644
+  source 'tomcat_service.erb'
+  owner 'root'
+  mode '644'
 end
 
 execute 'reload_daemon' do
-    command 'sudo systemctl daemon-reload'
+  command 'sudo systemctl daemon-reload'
 end
 
 service 'tomcat' do
-    action [:enable, :start]
+  action [:enable, :start]
 end
