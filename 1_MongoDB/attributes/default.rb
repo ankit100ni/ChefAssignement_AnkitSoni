@@ -2,3 +2,5 @@ default['mongodb']['baseurl'] = 'https://repo.mongodb.org/yum/redhat/$releasever
 default['mongodb']['gpgkey'] = 'https://www.mongodb.org/static/pgp/server-4.4.asc'
 default['mongodb']['package'] = 'mongodb-org'
 default['mongodb']['service_file'] = '/etc/yum.repos.d/mongodb-org-4.4.repo'
+default['mongodb']['user'] = 'root'
+default['mongodb']['privilege'] = '0644'

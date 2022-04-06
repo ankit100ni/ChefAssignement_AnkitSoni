@@ -10,10 +10,6 @@ template node['tomcat']['service'] do
   mode '644'
 end
 
-execute 'reload_daemon' do
-  command 'sudo systemctl daemon-reload'
-end
-
 service 'tomcat' do
   action [:enable, :start]
 end

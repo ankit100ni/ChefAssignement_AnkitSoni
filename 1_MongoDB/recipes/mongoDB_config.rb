@@ -6,8 +6,8 @@
 
 template node['mongodb']['service_file'] do
   source 'mongoDBContent.erb'
-  owner 'root'
-  mode '644'
+  owner node['mongodb']['user']
+  mode node['mongodb']['privilege']
 end
 
 package node['mongodb']['package']
